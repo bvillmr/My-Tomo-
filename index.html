@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Tomo ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd6e7, #fff5f8);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  width: 85%;
+  max-width: 400px;
+  padding: 40px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+
+.heart {
+  font-size: 55px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+
+h1 {
+  color: #ff4f87;
+}
+
+#message {
+  min-height: 70px;
+  margin: 25px 0;
+  font-size: 20px;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: none;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  border: none;
+  padding: 13px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff4f87;
+  color: white;
+}
+
+#no {
+  background: #eee;
+  color: #555;
+}
+
+.fade {
+  animation: fade 0.8s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="heart">❤️</div>
+
+  <h1>Hey, asawa ko...</h1>
+
+  <div id="message">
+    I have something to tell you... 🥺
+  </div>
+
+  <div class="buttons" id="buttons">
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 😭</button>
+  </div>
+
+</div>
+
+<script>
+
+const message = document.getElementById("message");
+const buttons = document.getElementById("buttons");
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+
+function showMessage(text) {
+  message.classList.remove("fade");
+  void message.offsetWidth;
+  message.innerHTML = text;
+  message.classList.add("fade");
+}
+
+// First message
+setTimeout(() => {
+
+  showMessage("How are you, my love? 🥺❤️");
+
+  // Ask the question
+  setTimeout(() => {
+
+    showMessage("Do you love me? 👉👈💕");
+    buttons.style.display = "flex";
+
+  }, 3500);
+
+}, 2000);
+
+
+// YES
+yes.addEventListener("click", () => {
+
+  buttons.style.display = "none";
+
+  showMessage("YAYYY! 🥹❤️ I knew you loved me!");
+
+  setTimeout(() => {
+    showMessage("Take care always, okay? 🥺💕");
+
+    setTimeout(() => {
+      showMessage("Don't forget to eat and stay safe! ❤️");
+
+      setTimeout(() => {
+        showMessage("I love youuu! 🫶❤️");
+      }, 3500);
+
+    }, 3500);
+
+  }, 3500);
+
+});
+
+
+// NO
+no.addEventListener("click", () => {
+
+  showMessage("Hmm... are you sure? 🥺👉👈");
+
+  setTimeout(() => {
+    showMessage("Think again... 😭❤️");
+  }, 2000);
+
+});
+
+</script>
+
+</body>
+</html>
