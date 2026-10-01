@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My Tomo ❤️</title>
+  <title>My Tomo ♡</title>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap');
@@ -15,174 +15,350 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
-      background: #faf8f4;
-      color: #403b37;
+      background:
+        radial-gradient(circle at 50% 0%, #fff1f3 0%, transparent 35%),
+        linear-gradient(180deg, #fffaf9 0%, #f9f3f1 50%, #fffafa 100%);
+      color: #4a4140;
       font-family: "Noto Sans JP", sans-serif;
       font-weight: 300;
       overflow-x: hidden;
+    }
+
+    /* Sakura background */
+
+    .petal {
+      position: fixed;
+      top: -30px;
+      font-size: 18px;
+      opacity: 0.55;
+      pointer-events: none;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    .petal:nth-child(1) {
+      left: 8%;
+      animation-duration: 9s;
+    }
+
+    .petal:nth-child(2) {
+      left: 25%;
+      animation-duration: 12s;
+      animation-delay: 2s;
+    }
+
+    .petal:nth-child(3) {
+      left: 50%;
+      animation-duration: 10s;
+      animation-delay: 4s;
+    }
+
+    .petal:nth-child(4) {
+      left: 72%;
+      animation-duration: 13s;
+      animation-delay: 1s;
+    }
+
+    .petal:nth-child(5) {
+      left: 90%;
+      animation-duration: 11s;
+      animation-delay: 3s;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
     }
 
     .page {
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 35px 22px;
+      padding: 55px 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .content {
       width: 100%;
-      max-width: 540px;
+      max-width: 560px;
       text-align: center;
     }
 
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     .heart {
-      font-family: "Noto Serif JP", serif;
-      font-size: 25px;
-      color: #a87979;
-      margin-bottom: 22px;
-      animation: fadeUp 1s ease forwards;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.65);
+      box-shadow: 0 10px 35px rgba(170, 115, 120, 0.13);
+      font-size: 30px;
+      margin-bottom: 28px;
+      animation:
+        fadeUp 1s ease forwards,
+        heartbeat 2.2s ease-in-out infinite 1s;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.07);
+      }
     }
 
     h1 {
       font-family: "Noto Serif JP", serif;
-      font-size: clamp(42px, 12vw, 65px);
+      font-size: clamp(48px, 13vw, 75px);
       font-weight: 400;
       line-height: 1.25;
+      letter-spacing: 3px;
       margin-bottom: 20px;
-      animation: fadeUp 1s ease 0.15s both;
+      text-shadow: 0 4px 20px rgba(120, 80, 80, 0.08);
+      animation: fadeUp 1s ease .15s both;
     }
 
     .subtitle {
       font-size: 13px;
       line-height: 2;
-      color: #77716c;
+      color: #938482;
+      letter-spacing: 2px;
       margin-bottom: 38px;
-      animation: fadeUp 1s ease 0.3s both;
+      animation: fadeUp 1s ease .3s both;
     }
 
+    /* BUTTON */
+
     button {
-      border: 1px solid #d7cfca;
-      background: transparent;
-      color: #514b47;
-      padding: 13px 28px;
-      border-radius: 30px;
+      border: 1px solid #d8c3c1;
+      background: rgba(255,255,255,0.65);
+      color: #594d4c;
+      padding: 14px 32px;
+      border-radius: 40px;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 11px;
-      letter-spacing: 1px;
+      font-size: 12px;
+      letter-spacing: 2px;
       cursor: pointer;
-      transition: 0.3s ease;
+      box-shadow: 0 8px 25px rgba(150, 110, 110, 0.08);
+      transition: .35s ease;
     }
 
     button:hover {
-      background: #eee8e3;
-      transform: translateY(-2px);
+      background: #f4e4e3;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(150, 110, 110, 0.15);
+    }
+
+    button:active {
+      transform: scale(.96);
     }
 
     .hidden {
       display: none;
     }
 
+    /* LETTER */
+
     .letter {
-      margin-top: 55px;
-      padding-top: 45px;
-      border-top: 1px solid #e5dfda;
-      animation: fadeIn 1s ease;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .card {
+      position: relative;
+      margin-top: 20px;
+      padding: 55px 30px;
+      border: 1px solid rgba(210, 190, 188, .65);
+      border-radius: 28px;
+      background: rgba(255,255,255,.55);
+      box-shadow:
+        0 20px 60px rgba(120, 90, 90, .08),
+        inset 0 0 30px rgba(255,255,255,.5);
+      backdrop-filter: blur(8px);
+    }
+
+    .card::before {
+      content: "♡";
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      color: #c99a9a;
+      font-size: 18px;
+    }
+
+    .card::after {
+      content: "♡";
+      position: absolute;
+      bottom: 20px;
+      right: 25px;
+      color: #c99a9a;
+      font-size: 18px;
     }
 
     .section-title {
       font-family: "Noto Serif JP", serif;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 400;
-      margin-bottom: 27px;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
     }
 
     .message {
       font-size: 13px;
-      line-height: 2.4;
-      color: #6f6863;
+      line-height: 2.6;
+      color: #766b69;
     }
 
     .japanese {
-      margin-top: 28px;
+      margin-top: 35px;
       font-family: "Noto Serif JP", serif;
-      font-size: 25px;
-      color: #4b4541;
+      font-size: 28px;
+      color: #514646;
+      letter-spacing: 2px;
     }
 
     .translation {
-      margin-top: 6px;
+      margin-top: 8px;
       font-size: 10px;
-      color: #99918b;
+      color: #aaa09e;
       font-style: italic;
     }
 
+    /* DIVIDER */
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 60px 0;
+      color: #c99a9a;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      background: #dfcfcd;
+      flex: 1;
+    }
+
+    /* MISS */
+
     .miss-section {
-      margin-top: 65px;
+      padding: 20px 10px;
     }
 
     .miss-message {
-      min-height: 70px;
-      margin: 25px auto;
-      max-width: 390px;
+      min-height: 85px;
+      margin: 28px auto;
+      max-width: 420px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.55);
+      border: 1px solid #eadcda;
       font-family: "Noto Serif JP", serif;
-      font-size: 22px;
-      line-height: 1.7;
-      color: #514945;
+      font-size: 21px;
+      line-height: 1.8;
+      color: #5b4f4e;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: opacity .4s ease;
     }
 
+    /* DATE */
+
     .date-section {
-      margin-top: 65px;
-      padding-top: 45px;
-      border-top: 1px solid #e5dfda;
+      padding: 50px 20px;
+      border-radius: 25px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,245,246,.8),
+          rgba(255,255,255,.5)
+        );
+      border: 1px solid #eadcda;
+      box-shadow: 0 15px 40px rgba(150,100,100,.06);
     }
 
     .date {
       font-family: "Noto Serif JP", serif;
-      font-size: 25px;
-      margin-bottom: 9px;
+      font-size: 28px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
     }
 
     .date-text {
       font-size: 11px;
-      color: #8a827c;
+      color: #938482;
+      letter-spacing: 1px;
     }
 
+    /* ENDING */
+
     .ending {
-      margin-top: 70px;
-      padding-top: 45px;
-      padding-bottom: 35px;
-      border-top: 1px solid #e5dfda;
+      margin-top: 65px;
+      padding: 60px 25px 45px;
+      position: relative;
+    }
+
+    .ending::before {
+      content: "✿";
+      display: block;
+      color: #c99a9a;
+      font-size: 22px;
+      margin-bottom: 22px;
     }
 
     .ending h2 {
       font-family: "Noto Serif JP", serif;
-      font-size: 30px;
+      font-size: 31px;
       font-weight: 400;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
     }
 
     .ending p {
       font-size: 12px;
-      line-height: 2.1;
-      color: #77716c;
+      line-height: 2.4;
+      color: #8a7f7d;
     }
 
     .tiny-heart {
-      margin-top: 25px;
-      font-size: 18px;
-      color: #a87979;
+      margin-top: 28px;
+      font-size: 20px;
     }
+
+    /* ANIMATIONS */
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(20px);
       }
 
       to {
@@ -202,12 +378,41 @@
     }
 
     @media (max-width: 500px) {
+
       .page {
-        padding: 25px 20px;
+        padding: 25px 16px;
+      }
+
+      .hero {
+        min-height: 90vh;
       }
 
       h1 {
-        font-size: 45px;
+        font-size: 48px;
+      }
+
+      .card {
+        padding: 45px 22px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .message {
+        font-size: 12px;
+      }
+
+      .japanese {
+        font-size: 25px;
+      }
+
+      .date {
+        font-size: 24px;
+      }
+
+      .ending h2 {
+        font-size: 27px;
       }
     }
   </style>
@@ -215,67 +420,100 @@
 
 <body>
 
+  <!-- Sakura petals -->
+  <div class="petal">🌸</div>
+  <div class="petal">🌸</div>
+  <div class="petal">🌸</div>
+  <div class="petal">🌸</div>
+  <div class="petal">🌸</div>
+
   <main class="page">
 
     <div class="content">
 
-      <div class="heart">❤️</div>
+      <!-- HERO -->
+      <section class="hero">
 
-      <h1>
-        私のトモへ
-      </h1>
+        <div class="heart">❤️</div>
 
-      <p class="subtitle">
-        あなたのために、少しだけ。
-      </p>
+        <h1>私のトモへ</h1>
 
-      <button onclick="openLetter()">
-        開く 🥰
-      </button>
-
-
-      <div id="letter" class="letter hidden">
-
-        <h2 class="section-title">
-          トモへ
-        </h2>
-
-        <p class="message">
-
-          いつも本当にありがとう。<br>
-          いつもそばにいてくれて、<br>
-          優しくしてくれて、<br>
-          そして私を愛してくれてありがとう。<br><br>
-
-          離れていても、<br>
-          私がいつもあなたを想っていることを<br>
-          忘れないでね。<br>
-          ずっとあなたのことを考えてるよ。
-
+        <p class="subtitle">
+          あなたのために、少しだけ。
         </p>
 
-        <div class="japanese">
-          大好きだよ、トモ。
+        <button onclick="openLetter()">
+          開く　🥰
+        </button>
+
+      </section>
+
+
+      <!-- LETTER -->
+      <div id="letter" class="letter hidden">
+
+        <div class="card">
+
+          <h2 class="section-title">
+            トモへ
+          </h2>
+
+          <p class="message">
+
+            いつも本当にありがとう。<br>
+            いつもそばにいてくれて、<br>
+            優しくしてくれて、<br>
+            そして私を愛してくれてありがとう。<br><br>
+
+            離れていても、<br>
+            私がいつもあなたを想っていることを<br>
+            忘れないでね。<br>
+            ずっとあなたのことを考えてるよ。
+
+          </p>
+
+          <div class="japanese">
+            大好きだよ、トモ。
+          </div>
+
+          <div class="translation">
+            I love you so much, Tomo.
+          </div>
+
         </div>
 
 
-        <div class="miss-section">
+        <!-- DIVIDER -->
+        <div class="divider">
+          ♡
+        </div>
+
+
+        <!-- MISS -->
+        <section class="miss-section">
 
           <h2 class="section-title">
             私が恋しくなったら…
           </h2>
 
           <button onclick="showMessage()">
-            ここを押して 😚
+            ここを押して　😚
           </button>
 
           <div id="missMessage" class="miss-message">
             ❤️
           </div>
 
+        </section>
+
+
+        <!-- DIVIDER -->
+        <div class="divider">
+          ✿
         </div>
 
 
+        <!-- DATE -->
         <div class="date-section">
 
           <div class="date">
@@ -289,6 +527,7 @@
         </div>
 
 
+        <!-- ENDING -->
         <div class="ending">
 
           <h2>
@@ -328,7 +567,7 @@
           block: "start"
         });
 
-      }, 100);
+      }, 150);
 
     }
 
@@ -367,18 +606,17 @@
           Math.random() * messages.length
         );
 
-      } while (random === lastMessage);
-
+      } while (
+        random === lastMessage &&
+        messages.length > 1
+      );
 
       lastMessage = random;
-
 
       const messageElement =
         document.getElementById("missMessage");
 
-
       messageElement.style.opacity = "0";
-
 
       setTimeout(() => {
 
